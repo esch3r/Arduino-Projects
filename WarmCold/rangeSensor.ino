@@ -1,14 +1,15 @@
+//Created by Johnathan Machler 
+//Date 1.10.19
+
 const int pingPin = 7; // Trigger Pin of Ultrasonic Sensor
 const int echoPin = 6; // Echo Pin of Ultrasonic Sensor
 
 const int RED_PIN = 9;
-const int GREEN_PIN = 10;
-const int BLUE_PIN = 11;
+const int BLUE_PIN = 10;
 
 void setup() {
    Serial.begin(9600); // Starting Serial Terminal
    pinMode(RED_PIN, OUTPUT);
-   pinMode(GREEN_PIN, OUTPUT);
    pinMode(BLUE_PIN, OUTPUT);
 }
 
@@ -31,11 +32,9 @@ void loop() {
    Serial.println();
 
    
-  long color = map (microseconds, 2,400, 0,255);
-  Serial.println(color);
-  Serial.println(": ");
-  Serial.println(result);
-
+  long color = map (cm,0,280,0,255);
+  setColor(255,color);
+   
    delay(100);
 }
 
@@ -49,3 +48,9 @@ long microsecondsToCentimeters(long microseconds) {
 
 // function to convert 5cm to color blue  200cm color
 // map(x, a,b,  c,d)  [5,400] to [0,255]
+
+
+void setColor(int redValue, int blueValue) {
+  analogWrite(RED_PIN, redValue);
+  analogWrite(BLUE_PIN, blueValue);
+}

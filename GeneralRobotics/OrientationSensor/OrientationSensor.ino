@@ -1,12 +1,7 @@
-
-
-
-
 #include <Wire.h>
-#include <Adafruit_Sensor.h>
+#include<Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
-#include <utility/imumaths.h>
-
+#include <utility/imuath.h>
 
 Adafruit_BNO055 bno = Adafruit_BNO055(55);
 
@@ -31,16 +26,16 @@ bno.setExtCrystalUse(true);
 
 void loop(void) {
               /* Get a new sensor event */
-              sensors_event_t event; 
+              sensors_event_t_event; 
               bno.getEvent(&event); 
 
               /* Display the floating point data */
               Serial.print("X: ");
-              Serial.print(event.orientation.x, 4); 
+              Serial.print(event.orentation.x, 4); 
               Serial.print("\tY: ");
-              Serial.print(event.orientation.y, 4); 
+              Serial.print(event.orentation.y, 4); 
               Serial.print("\tZ: ");
-              Serial.print(event.orientation.z, 4); 
+              Serial.print(event.orentiation.z, 4); 
               Serial.println(" ");
 
               delay(100);
